@@ -1,0 +1,21 @@
+<!doctype html>
+<!--
+  http://www.ab-weblog.com/en/internationalization-how-to-localize-html5-projects/
+-->
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Internationalization Test</title>
+
+	<link rel="localization" hreflang="de" href="lang/de.json" type="application/vnd.oftn.l10n+json"/>
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/i18n.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body onload="loaded()">
+	<h1 id="headertext">This is an Internationalization Test!</h1>
+	<h2 id="subtitletext">With any subtitle.</h2>
+	<a id="showinenglish" href="index.html?lang=en">Show in English</a>
+	<a id="showingerman" href="index.html?lang=de">Show in German</a>
+</body>
+</html>
