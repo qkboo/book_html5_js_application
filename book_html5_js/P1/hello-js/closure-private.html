@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<title>P1::Closour-Private member</title>
+<script>
+function Member(p) {
+    var points = p || 10;
+    
+    // private members
+    function _getPoint() { return points; };
+    function _setPoint(p) { return points = p; };
+    
+    // public members
+    return {
+        getPoint : _getPoint,
+        setPoint : _setPoint
+    };
+}
+ 
+// ========== TEST ==========
+       
+console.log(" ========= Member ==========");
+var member = Member(30);
+console.log("typeof member : ==> " + (typeof member) + ":" + member);
+console.log("member.getPoints() ==> " + member.getPoint() );
+console.log("member.setPoint(40) ==> " + member.setPoint(40) );
+console.log("member.getPoints() ==> " + member.getPoint() );
+
+
+var member2 = new Member();
+console.log("typeof member2 : ==> " + (typeof member2) + ":"  + member2);
+console.log("member2.getPoints() ==> " + member2.getPoint() );
+console.log("member2.setPoints(20) ==> " + member2.setPoint(20) );
+console.log("member2.getPoints() ==> " + member2.getPoint() );
+
+</script>

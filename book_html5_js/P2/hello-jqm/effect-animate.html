@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+  <head>
+    <meta charset="utf-8" />
+    <title>jQuery Event</title>
+    <script src="resources/jquery-2.1.0.js"></script>
+    <style type="text/css">
+	  div {
+	    background: #98bf21; height: 100px; width: 200px; position: absolute;
+	  }
+    </style>
+    <script>
+      $().ready(function() {
+    	  $("button#animate").click(function(){
+    		    var div=$("div");  
+    		    div.animate({left:'100px'},"slow");
+    		    div.animate({fontSize:'3em'},"slow");
+    		});
+    	  
+    	  $("button#animate2").click(function(){
+    		    var div = $("div");
+    		    startAnimation();
+    		    function startAnimation(){
+    		      div.animate({height:300},"slow");
+    		      div.animate({width:300},"slow");
+    		      div.css("background-color","blue");  
+    		      div.animate({height:100},"linear");
+    		      div.animate({width:100},"linear",startAnimation);
+    		    }
+    		  });
+      });
+    </script>
+  </head>
+  <body>
+  	<nav>
+  		<button id="animate">animate</button>
+  		<button id="animate2">animate-Callback</button>
+  	</nav>
+	<section>
+		<p>일반적으로 HTML 요소는 고정된 위치 값을 가지고 이동을 할 수 없다.</p>
+		<div>jQuery Animate!!!!!!!!</div>
+	</section>
+
+</body>
+</html>

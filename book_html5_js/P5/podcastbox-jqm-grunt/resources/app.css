@@ -1,0 +1,54 @@
+html {
+  height: 100%;
+  font-size: 62.5%; /* Setting base font to 10px and define all your units in rem. 1rem = 10px */
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+
+#main-contents{
+    padding:1em;
+    position:relative;
+}
+
+.ui-panel-inner {
+    padding:0px; /*make the buttons flush edge to edge*/
+}
+.ui-controlgroup {
+    margin:0; /*make the buttons flush to the top*/
+}
+#header {
+    height:54px;
+}
+#bars-button {
+    margin:7px;
+    margin-top:10px;
+} 
+
+/* This will help you scroll just the content of your app. Eg:
+  <header class="fixed">
+  ...
+  <article class="scrollable header">
+*/
+
+.scrollable {
+  overflow: scroll;
+  height: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  position: relative;
+}
+
+.scrollable.header {
+  border-top: transparent solid 5rem;
+}

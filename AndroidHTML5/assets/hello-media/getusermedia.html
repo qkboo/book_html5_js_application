@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="user-scalable=no; initial-scale=1.0;  width=device-width" />
+    <meta charset="UTF-8"/>
+    <script>
+      window.onload = function() {
+        // Normalize the various vendor prefixed versions of getUserMedia.
+        navigator.getUserMedia = (navigator.getUserMedia ||
+          navigator.webkitGetUserMedia ||
+          navigator.mozGetUserMedia || 
+          navigator.msGetUserMedia);
+
+          if (navigator.getUserMedia) {
+            navigator.getUserMedia(// Request the camera.
+              // Constraints
+              {
+                video: true
+              },
+              // Success Callback
+              function(localMediaStream) {
+                var video = document.querySelector('video');
+                video.src = window.URL.createObjectURL(localMediaStream);
+                video.onloadedmetadata = function(e) {
+                   // Do something with the video here.
+                };
+              },
+          
+              // Error Callback
+              function(err) {
+                // Log the error to the console.
+                console.log('The following error occurred when trying to use getUserMedia: ' + err);
+              }
+            );
+          
+          } else {
+            alert('Sorry, your browser does not support getUserMedia');
+          }
+      }
+    </script>
+    
+  </head>
+  <body>
+    <video></video>
+  </body>
+</html>

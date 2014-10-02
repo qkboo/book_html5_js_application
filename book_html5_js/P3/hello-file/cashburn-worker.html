@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>국가 예산</title>
+<script src="resources/jquery-2.1.0.js">
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	// Web worker 지원 체크 - caniuse.com
+	function getWebWorkerSupport() {
+	    return (typeof(Worker)!== "undefined") ? true: false;
+	}
+	if( !getWebWorkerSupport() ) {
+	    alert("이 브라우져는 지원하지 않습니다");
+	    return;
+	}
+	
+	// Worker 작성
+	var worker = new Worker("cashburn-worker.js");
+
+	// Worker로 부터 메시지를 받을 수 있도록 이벤트를 설정
+	worker.onmessage = function(event) {
+		$("#counter").html(event.data);
+	};
+	
+	setInterval( function() {
+		worker.postMessage("start");
+	}, 333);
+
+});
+
+</script>
+</head>
+<body>
+    <!-- 표시할 위치 -->
+    <section id="counter"></section>
+</body>
+
+</html>

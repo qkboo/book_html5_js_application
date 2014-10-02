@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>jQuery Event</title>
+    <script src="resources/jquery-2.1.0.js"></script>
+    <style type="text/css">
+	  div {
+	    background: yellow;
+	    display: none;
+	  }
+    </style>
+    <script>
+      $().ready(function() {
+          $("a").click(function() {
+              $("#title").toggle("slow");
+              return false;
+          });
+
+          $( "button" ).click(function() {
+            $( "div" ).show( "slow" );
+          });
+      });
+    </script>
+  </head>
+  <body>
+  	<nav>
+  		<button id="show">Show & Hide</button>
+      <a href=#>Toggle title</a>
+  	</nav>
+
+	<section>
+    <h3 id="title">타이틀</h3>
+		<div data-role="page1">안녕하세요 페이지1</p>
+		<div data-role="page2">안녕하세요 페이지2</p>
+	</section>
+
+
+</body>
+</html>

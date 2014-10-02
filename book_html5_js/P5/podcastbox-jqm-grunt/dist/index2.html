@@ -1,0 +1,104 @@
+<!DOCTYPE HTML><html><head><title>PodcastBox</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,user-scalable=1"><link rel="stylesheet" href="resources/jquery.mobile-1.4.2.css"><script src="resources/jquery-2.1.0.js"></script><script src="resources/jquery.mobile-1.4.2.js"></script><link rel="stylesheet" href="resources/app.css"><link rel="stylesheet" href="resources/lists.css"><script src="js/app.js"></script></head><body><section data-role="page" id="podcast"><section data-role="header" data-position="fixed" data-theme="b"><header id="header" class="header_flex"><a class="ui-btn-left" href="#navpanel"><img src="images/ic_drawer.png"></a><h3>법륜스님의 즉문즉설</h3></header></section><section data-role="list"><ul id="podcastlist" data-role="listview" data-inset="true" data-transition="slideup" data-theme="b"><li data-role="no-item">(즐겨찾는 Podcast가 없습니다.)</li><li class="list_item"><a href="#detail-podcast" class="ui-li-icon" data-title="법륜스님의 즉문즉설"><img src="images/pomnyun_profile.jpg"> 법륜스님의 <strong>즉문즉설</strong> <span class="ui-li-count">12</span></a></li><li class="list_item"><a href="#" class="ui-li-icon"><img src="images/vamp666.jpg"> 이박사와 이작가의 <strong>이이제이</strong> <span class="ui-li-count">12</span></a></li><li data-role="list-divider">Divider</li><li class="list_item"><a href="#" class="ui-li-icon"><img src="images/news3.jpg"> <strong>곽수종의 YTN 생생경제</strong> <span class="ui-li-count">12</span></a></li><li class="list_item"><a href="#"><img src="images/guitarkirk-3minute.jpg"> [국민TV] <strong>서화숙의 3분칼럼</strong></a></li><li class="list_item"><a href="#"><img src="images/pod_proimg_walkworld.jpg"> 타박타박 <strong>세계사</strong></a></li><li class="list_item"><a href="#"><img src="images/pod_proimg_economy.jpg"> 손에 잡히는 경제 <strong>이진우입니다</strong></a></li><li class="list_item"><a href="#"><img src="images/R2010-0090.jpg"> <strong>다큐멘터리 역사를 찾아서</strong></a></li></ul></section><section data-role="panel" id="navpanel" data-theme="a" data-display="overlay" data-positoin="left"><header data-role="header"><h1>Podcast channels</h1></header><nav><ul data-role="controlgroup" data-corners="false"><li><a href="#" data-role="button">최신 팟캐스트</a></li><li><a href="#" data-role="button">교육/학습</a></li><li><a href="#" data-role="button">문화/사회</a></li></ul><ul data-role="controlgroup" data-corners="false"><li><a href="#" data-role="button">과학/IT</a></li></ul></nav></section><div id="confirm" class="ui-content" data-role="popup" data-theme="a"><p id="question">==== 삭제 하시겠습니까 =====</p><div class="ui-grid-a"><div class="ui-block-a"><a id="yes" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">예</a></div><div class="ui-block-b"><a id="cancel" class="ui-btn ui-corner-all ui-mini ui-btn-a" data-rel="back">아니오</a></div></div></div></section><section data-role="page" id="detail-podcast"><section data-role="header" data-position="fixed" data-theme="b"><header id="header" class="header_flex2"><a class="ui-btn ui-btn-inline" data-rel="back" href="#podcast">Back</a><h3>법륜스님의 즉문즉설</h3></header></section><section data-role="list"><ul data-role="listview" data-theme="b"><li data-type="no-item">(Podcast가 없습니다.)</li><li class="list_item"><aside class="pack-end"><img src="images/pomnyun_profile.jpg"></aside><a href="#"><p>2014-05-22 법륜스님의 <strong>즉문즉설</strong></p><p>제927회 서울로 가서 짝을 찾고 싶어요</p></a></li><li class="list_item"><aside class="pack-end"><img src="images/pomnyun_profile.jpg"></aside><a href="#"><p>2014-05-22 법륜스님의 <strong>즉문즉설</strong></p><p>제926회 부모님 묘지 때문에 자식들의 갈등이 심합…</p></a></li><li class="list_item"><aside class="pack-end"><img src="images/pomnyun_profile.jpg"></aside><a href="#"><p>2014-05-22 법륜스님의 <strong>즉문즉설</strong></p><p>제924회 수박 농사 31년째, 남편이 말을 안 듣습…</p></a></li><li class="list_item"><aside class="pack-end"><img src="images/pomnyun_profile.jpg"></aside><a href="#"><p>2014-05-22 법륜스님의 <strong>즉문즉설</strong></p><p>제923회 아내에게 인정받지 못하고 살아요</p></a></li><li class="list_item"><aside class="pack-end"><img src="images/pomnyun_profile.jpg"></aside><a href="#"><p>2014-05-22 법륜스님의 <strong>즉문즉설</strong></p><p>제922회 자식들 다 출가시키고 나니 다음 생이 걱…</p></a></li><li class="list_item"><aside class="pack-end"><img src="images/pomnyun_profile.jpg"></aside><a href="#"><p>2014-05-22 법륜스님의 <strong>즉문즉설</strong></p><p>제921회 50대 가장, 열심히 일했는데 제 인생은 …</p></a></li><li class="list_item"><aside class="pack-end"><img src="images/pomnyun_profile.jpg"></aside><a href="#"><p>2014-05-22 법륜스님의 <strong>즉문즉설</strong></p><p>제920회 임신 중인데요, 돈 욕심이 점점 커집니다</p></a></li><li class="list_item"><aside class="pack-end"><img src="images/pomnyun_profile.jpg"></aside><a href="#"><p>2014-05-22 법륜스님의 <strong>즉문즉설</strong></p><p>제919회 인생이 뜻대로 되지 않을 때</p></a></li></ul></section></section><style>/* Left transition */
+li.left {
+    -webkit-transition: -webkit-transform 250ms ease;
+    -webkit-transform: translateX(-100%);
+    -moz-transition: -moz-transform 250ms ease;
+    -moz-transform: translateX(-100%);
+    -o-transition: -o-transform 250ms ease;
+    -o-transform: translateX(-100%);
+    transition: transform 250ms ease;
+    transform: translateX(-100%);
+}
+/* Right transition */
+li.right {
+    -webkit-transition: -webkit-transform 250ms ease;
+    -webkit-transform: translateX(100%);
+    -moz-transition: -moz-transform 250ms ease;
+    -moz-transform: translateX(100%);
+    -o-transition: -o-transform 250ms ease;
+    -o-transform: translateX(100%);
+    transition: transform 250ms ease;
+    transform: translateX(100%);
+}
+/* Border bottom for the previous button during the transition*/
+li.left a.ui-btn,
+li.right a.ui-btn {
+    border-top-width: 0;
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+li a.ui-btn.border-bottom {
+    border-bottom-width: 1px;
+}
+/* Hide the delete button on touch devices */
+ul.touch li.ui-li-has-alt a.delete {
+    display: none;
+}
+ul.touch li.ui-li-has-alt a.ui-btn {
+    margin-right:0;
+}
+/* Styling for the popup */
+#confirm p {
+    text-align: center;
+    font-size: inherit;
+    margin-bottom: .75em;
+}</style><script>$( document ).on( "pagecreate", "#podcast", function() {
+  // Swipe to remove list item
+  $( document ).on( "swipeleft swiperight", "#podcastlist li", function( event ) {
+      var listitem = $( this ),
+          // These are the classnames used for the CSS transition
+          dir = event.type === "swipeleft" ? "left" : "right",
+          // Check if the browser supports the transform (3D) CSS transition
+          transition = $.support.cssTransform3d ? dir : false;
+          confirmAndDelete( listitem, transition );
+  });
+  // If it's not a touch device...
+  if ( ! $.mobile.support.touch ) {
+      // Remove the class that is used to hide the delete button on touch devices
+      $( "#podcastlist" ).removeClass( "touch" );
+      // Click delete split-button to remove list item
+      $( ".delete" ).on( "click", function() {
+          var listitem = $( this ).parent( "li" );
+          confirmAndDelete( listitem );
+      });
+  }
+  function confirmAndDelete( listitem, transition ) {
+      // Highlight the list item that will be removed
+      listitem.children( ".ui-btn" ).addClass( "ui-btn-active" );
+      // Inject topic in confirmation popup after removing any previous injected topics
+      $( "#confirm .topic" ).remove();
+      listitem.find( ".topic" ).clone().insertAfter( "#question" );
+      // Show the confirmation popup
+      $( "#confirm" ).popup( "open" );
+      // Proceed when the user confirms
+      $( "#confirm #yes" ).on( "click", function() {
+          // Remove with a transition
+          if ( transition ) {
+              listitem
+                  // Add the class for the transition direction
+                  .addClass( transition )
+                  // When the transition is done...
+                  .on( "webkitTransitionEnd transitionend otransitionend", function() {
+                      // ...the list item will be removed
+                      listitem.remove();
+                      // ...the list will be refreshed and the temporary class for border styling removed
+                      $( "#podcastlist" ).listview( "refresh" ).find( ".border-bottom" ).removeClass( "border-bottom" );
+                  })
+                  // During the transition the previous button gets bottom border
+                  .prev( "li" ).children( "a" ).addClass( "border-bottom" )
+                  // Remove the highlight
+                  .end().end().children( ".ui-btn" ).removeClass( "ui-btn-active" );
+          }
+          // If it's not a touch device or the CSS transition isn't supported just remove the list item and refresh the list
+          else {
+              listitem.remove();
+              $( "#podcastlist" ).listview( "refresh" );
+          }
+      });
+      // Remove active state and unbind when the cancel button is clicked
+      $( "#confirm #cancel" ).on( "click", function() {
+          listitem.removeClass( "ui-btn-active" );
+          $( "#confirm #yes" ).off();
+      });
+  }
+});</script></body></html>

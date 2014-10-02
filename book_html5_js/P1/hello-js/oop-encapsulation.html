@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>OOP::Encapsulation</title>
+    <script>
+      function MyClass() {
+        var m_data = 5;
+        var m_msg = 'Hello, World';
+        this.setData = function(v) {
+          m_data = v;
+        };
+        this.setMessage = function(m) {
+          m_msg = m;
+        };
+        this.getMessage = function() {
+          return m_msg + ': data is ' + m_data;
+        };
+      }
+      
+      // ========== TEST ==========
+      var obj1 = new MyClass();
+      var obj2 = new MyClass();
+      obj1.setData(20);
+      obj1.setMessage('Obj1 Hello~~~');
+      
+      console.log(obj1.getMessage());
+      console.log(obj2.getMessage());
+    </script>
+  </head>
+
+  <body>
+    
+  </body>
+  
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<script>
+	window.onload = function() {
+		canvas = document.querySelector("canvas");
+		context = canvas.getContext("2d");
+
+		context.canvas.width = window.innerWidth - 10;
+		context.canvas.height = window.innerHeight / 3;
+
+		// 이미지 객체 생성
+		image = new Image();
+		image.src = "images/roe-deer-259272_150.jpg";
+		// 사용하기 위한 이미지는 로딩 되어야 사용가능
+		image.onload = function() {
+			var x = context.canvas.width / 4;
+			context.drawImage(image, x, 10, image.width * 2, image.height * 2);
+		}
+		var elementList = document.querySelectorAll("img");
+		for (var i = 0; i < elementList.length; i++) {
+			elementList[i].addEventListener("click", changeImg, false);
+		}
+
+	}
+	function changeImg(event) {
+		// android bug로 clearRect가 잘 동작 안한다... 흔적이 남는다
+		// context.clearRect(0, 0, canvas.width, canvas.heigth);
+		// 그래서 fillRect로 채운다.
+		context.fillStyle = "rgba(0, 0, 0, 0)";
+		context.fillRect(0, 0, canvas.width, canvas.height);
+
+		image.src = event.target.src;
+		context.drawImage(image, 200, 0, 400, canvas.height);
+	}
+</script>
+<style>
+html,body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+
+canvas {
+  position: relative;
+  padding-left: 2px;
+  border: 1px solid #000;
+}
+
+nav ul li {
+  list-style: none;
+  float: left
+}
+
+nav ul li img {
+  width: 100px;
+  padding-left: 2px;
+  border: 0
+}
+</style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="400"></canvas>
+    <nav>
+        <!--  아래 이미지들의 출처는 다음과 같습니다.
+       염소: http://pixabay.com/ko/염소-동물-뿔-검정-흑백-50290/
+       말: http://pixabay.com/ko/말-목장-자연-동물-197199/
+       오리: http://pixabay.com/ko/거위-애완-동물-물-헤엄-새-15032/
+       사슴: http://pixabay.com/ko/로우-사슴-dülmen-독일-야생-포유류-동물-259272/
+       개: http://pixabay.com/ko/동물-초상화-개-호기심-멀-었-어-234836/
+         -->
+        <ul>
+            <li><img src="images/roe-deer-259272_150.jpg" />
+            <li><img src="images/horse-197199_150.jpg" />
+            <li><img src="images/goose-15032_150.jpg" />
+            <li><img src="images/goat-50290_150.jpg" />
+            <li><img src="images/animal-portrait-234836_150.jpg" />
+        </ul>
+    </nav>
+</body>
+</html>

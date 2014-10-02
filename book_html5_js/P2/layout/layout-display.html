@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>Part2 Ch1: Layout Display</title>
+<style type="text/css">
+    .container {
+      width:80%;
+      height:80%;
+      border: 1 solid #000;
+      background-color: #e0e0e0;
+      margin: 1 1 1 1;
+    }
+    div {
+        width: 100px;
+        height: 100px;
+        margin: 2px;
+        background-color: #9acc36;
+    }
+    .item1 {
+        display: inline;
+        background-image: url('images/ic_launcher.png');
+    }
+    .item2 {
+        display: inline-block;
+        background-image: url('images/ic_launcher.png');
+    }
+</style>
+</head>
+
+<body>
+    <section class="container">
+        <header><h3>display:inline</h3></header>
+        <div class="item1">아이템1</div>
+        <div class="item1">아이템2</div>
+        <div class="item1">아이템3</div>
+        <div class="item1">아이템4</div>
+        <div class="item1">아이템5</div>
+        <div class="item1">아이템6</div>
+        <div class="item1">아이템7</div>
+    </section>
+    <section class="container">
+        <header><h3>display:block</h3></header>
+        <div class="item2">아이템1</div>
+        <div class="item2">아이템2</div>
+        <div class="item2">아이템3</div>
+        <div class="item2">아이템4</div>
+        <div class="item2">아이템5</div>
+        <div class="item2">아이템6</div>
+        <div class="item2">아이템7</div>
+    </section>
+</body>
+</html>

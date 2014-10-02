@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html manifest="appCache1.manifest"> 
+<head> 
+	<meta charset="utf-8"> 
+	<title>hello</title> 
+	<link href="common.css" rel="stylesheet" type="text/css">
+	<script src="appCache2.js"></script>
+	<script> 
+	window.applicationCache.addEventListener('updateready', function(e) {
+    	if (window.applicationCache.status ==
+                       window.applicationCache.UPDATEREADY) {
+			window.applicationCache.swapCache();
+	    	
+	    	if(confirm("업데이트를 이용할 수 있습니다. 업데이트를 하시겠습니까?")){
+				window.location.reload();
+			}
+		}
+	}, false);
+
+	/*
+	window.applicationCache.onupdateready = function(){
+		window.applicationCache.swapCache();
+		if(confirm('업데이트를 이용할 수 있습니다. 업데이트를 하시겠습니까?')){
+			window.location.reload();
+		}
+	};
+	*/
+	/*
+	window.onload = function(){
+		setInterval(function(){
+			window.applicationCache.update();
+		},10000);	
+	};*/
+	</script> 
+</head> 
+ 
+<body>
+  <div id="info"></div>
+  <section>
+  	<h4>HTML5 Logo</h4>
+  	<img src="img/HTML5_logo_and_wordmark.svg.png" width="60%">
+  </section>
+</body>
+</html>
+

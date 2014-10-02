@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Part2 Ch1: Flexlayout-Align Items</title>
+  <style type="text/css">
+    section .container1 .container2 .container3 {
+        width: 100%;
+        height: 100%;        
+    }
+    .container1 {
+      display: -webkit-flex;
+      display: -flex;
+      align-items: strech;
+      -webkit-align-items: strech;
+      background-color: #dad9db;
+    }
+    .container2 {
+      display: -webkit-flex;
+      display: -flex;
+      align-items: center;
+      -webkit-align-items: center;
+      background-color: #dad9db;
+    }
+    .container3 {
+      display: -webkit-flex;
+      display: -flex;
+      align-items: flex-end;
+      -webkit-align-items: flex-end;
+      background-color: #dad9db;
+    }
+
+    .container4 {
+      display: -webkit-flex;
+      display: -flex;
+      align-items: baseline;
+      -webkit-align-items: baseline;
+      background-color: #dad9db;
+    }
+
+    .flex-item {
+      width: 100px;
+      height: 100px;
+      margin: 2px;
+      background-color: #9acc36;
+    }
+  </style>
+        
+    </head>
+
+<body>
+    <label>align-items</label>
+<section class="container1">
+    <div class="flex-item">아이템1</div>
+    <div class="flex-item">아이템2</div>
+    <div class="flex-item">아이템3</div>
+    <div class="flex-item">아이템4</div>
+    <div class="flex-item">아이템5</div>
+    <div class="flex-item">아이템6</div>
+</section>
+<section class="container2">
+    <div class="flex-item">아이템7</div>
+    <div class="flex-item">아이템8</div>
+    <div class="flex-item">아이템9</div>
+    <div class="flex-item">아이템10</div>
+    <div class="flex-item">아이템11</div>
+    <div class="flex-item">아이템12</div>
+</section>  
+<section class="container3">
+    <div class="flex-item">아이템4</div>
+    <div class="flex-item">아이템5</div>
+    <div class="flex-item">아이템6</div>
+    <div class="flex-item">아이템6</div>
+    <div class="flex-item">아이템6</div>
+    <div class="flex-item">아이템6</div>
+</section>  
+<section class="container4">
+    <div class="flex-item">아이템4</div>
+    <div class="flex-item">아이템5</div>
+    <div class="flex-item">아이템6</div>
+</section>  
+</body>
+
+</html>

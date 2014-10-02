@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head><body>
+<input type="button" value="위치 정보 취득" onclick="showPos()"/>
+<!-- Android 1.6지원 -->
+<script type="text/javascript" src="gear5-0.3.js"></script>
+<script type="text/javascript">
+  function showPos() {
+    // geolocation을 지원하는 여부 확인
+    if (navigator.geolocation == undefined) {
+      alert("위치 정보를 이용할 수 없습니다."); return;
+    }
+    // 위치 정보 취득
+    navigator.geolocation.getCurrentPosition(
+      successCallback,
+      errorCallback);
+    // 성공했을 때
+    function successCallback(position) {
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      var uri = "http://maps.google.co.kr/?q=" + lat + "," + lon;
+      document.write("<h1>지도 표시</h1>");
+      document.write("<a href='" + uri + "'>현재 위치를 표시</a>");
+    }
+    // 실패했을 때
+    function errorCallback(err) {
+        alert("실패("+err.code+")"+err.message);
+    }
+  };
+</script>
+</body></html>

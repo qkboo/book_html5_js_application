@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Part2 Ch1: Flexlayout Order</title>
+<style type="text/css">
+  .container {
+    width: 100%;
+    height: 100%;   
+    display: -webkit-flex;
+    display: -flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+     align-content: center;
+    -webkit-align-content: center;
+    background-color: #C3C3C3;
+  }
+  .flex-item {
+    width: 100px;
+    height: 100px;
+    margin: 2px;
+    background-color: #9acc36;
+  }
+  .flex-item-grow {
+    width: 100px;
+    height: 100px;
+    margin: 2px;
+    background-color: #9acc36;
+    -webkit-flex-grow: 2;
+    flex-grow: 2;
+  }
+  .flex-item-first {
+    width: 70px;
+    height: 70px;
+    margin: 2px;
+    background-color: #9acc36;
+    -webkit-order: -1;
+    order: -1;
+  }
+</style>
+        
+    </head>
+
+<body>
+    <label>align-items</label>
+<section class="container">
+    <div class="flex-item">아이템1</div>
+    <div class="flex-item">아이템2</div>
+    <div class="flex-item">아이템3</div>
+    <div class="flex-item">아이템4</div>
+    <div class="flex-item-grow">아이템5</div>
+    <div class="flex-item-grow">아이템6</div>
+    <div class="flex-item-grow">아이템7</div>
+    <div class="flex-item-first">아이템8</div>
+    <div class="flex-item-first">아이템9</div>
+    <div class="flex-item-first">아이템10</div>
+</section>  
+</body>
+
+</html>

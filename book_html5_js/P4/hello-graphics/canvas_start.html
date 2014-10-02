@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Part3::Canvas graphics</title>
+<style>
+   canvas { 
+      position: relative; 
+      border: 1px solid #000;
+  }
+</style>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="300"></canvas>
+</body>
+
+<script>
+var canvas = document.querySelector("canvas");
+var context = canvas.getContext("2d");           
+
+context.strokeStyle = "#353535";
+context.strokeRect(5,5,390,290); //사각형을 그린다.
+
+context.fillStyle = "#353535";
+context.fillRect(10,10,100,100);    //사각형형 내부를 채운다
+
+context.strokeStyle = "#ff7f00";
+context.rect(140, 30, 40, 40)
+context.stroke();
+
+context.fillRect(230,10,100,100);   //색으로 채운 사각형
+
+context.clearRect(230,10,50,50);    //앞 사각형의 절반을 지움
+
+var msg = "안녕하세요. 캔버스에서 인사드립니다.!";
+context.font = "bold 20px serif";//명조계열
+context.textAlign = "left";
+
+context.fillText(msg, 10  ,150);
+context.font = "normal 20px sans"; // 고딕계열
+
+context.strokeText(msg, 10  ,190);   // 
+
+</script>
+</html>

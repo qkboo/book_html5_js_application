@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Battery Test</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=1" />
+<!-- jQuery & Mobile -->
+<link rel="stylesheet" href="resources/jquery.mobile-1.4.2.css" />    
+<script src="resources/jquery-2.1.0.js"></script>
+<script src="resources/jquery.mobile-1.4.2.js"></script>
+
+<script>
+$(document).ready( function() {
+	$('#notify_me').click( function() {
+        if(window.androidNotification) {
+        	androidNotification.startNotification('안드로이드 Notification 입니다!');
+        }
+
+        //changeState(NOTIFICATION_SHOWN, true);
+    });
+	    
+});
+
+   </script>
+
+	<style>
+	#main-contents > label{
+		display: block;
+		margin-bottom:15px;
+		font-size: xx-large;
+	}
+	
+	label .level .status .charged {
+		display: block;
+	}
+	</style>
+  </head>
+
+  <body>
+    <section data-role="page">
+      <article id="main-contents" role="main" class="ui-content">
+      <button class="ui-btn" id="notify_me">Notification!!!</button>
+      </article>
+    </section>
+
+  </body>
+  </html>

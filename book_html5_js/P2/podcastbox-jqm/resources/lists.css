@@ -1,0 +1,70 @@
+.header_flex {
+  width: 100%;
+  margin: 0 0.5rem 0 0;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header_flex2 {
+  margin: 0 0.5rem 0 0;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+[data-role="listview"] aside {
+    float: left;
+    margin: 0 0.5 rem 0 0;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+[data-role="listview"] li > a aside, 
+[data-role="listview"] li > a aside.icon {
+    background-color: transparent;
+    z-index: -1;
+}
+
+[data-role="list"] [data-role="no-item"] {
+  display: none;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  font-weight: normal;
+  color: #000000;
+  text-transform: uppercase;
+  margin-top: 2ex;
+  padding: 0 1.5rem;
+}
+
+
+[data-role="listview"] img {
+    float: left;
+    margin: 0 0 0 0.5 rem;
+    text-align: right;
+}
+
+[data-role="listview"] aside.icon {
+    width: 3rem;
+    height: 6rem;
+    background: #fff no-repeat left center /100% auto;
+    font: 0/0 a;
+    display: block;
+    overflow: hidden;
+}
+
+[data-role="listview"] aside img {
+    display: block;
+    overflow: hidden;
+    width: 6rem;
+    height: 6rem;
+    background: transparent center center /cover;
+    position: relative;
+    z-index: 1;
+}
+
+nav {
+    display: block;
+    margin: 0.3 rem;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Part1-Ch2: var</title>
+    <script>
+      var foo = 100;
+      bar = 200;
+      
+      console.log("window.foo=" + window.foo); // 100
+      console.log("window.bar="+ window.bar); // 200
+      
+      console.log("window['foo']=" + window["foo"]);
+      console.log("window['bar']=" + window["bar"]);
+
+      console.log("=== delete foo & bar ====");
+      delete foo; // window.foo 를 지우려도 시도.
+      delete bar; // window.bar 를 지운다.
+      
+      console.log("window.foo=" + window.foo); // 100
+      console.log("window.bar=" + window.bar); // undefined
+       
+      console.log("window['bar']=" + window["bar"]);
+      console.log("this.bar=" +this.bar);
+      console.log(window);
+    </script>
+  </head>
+
+  <body>
+    
+  </body>
+  
+</html>

@@ -1,0 +1,10 @@
+{
+    "name": "book-api",
+    "description": "Express Book API server",
+    "version": "0.0.1",
+    "dependencies": {
+        "express": "~4.x",
+        "mongoose": "~3.8.x",
+        "body-parser": "~1.6.x"
+    }
+}

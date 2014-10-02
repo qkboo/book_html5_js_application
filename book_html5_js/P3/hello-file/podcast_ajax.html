@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <h1>Podcast</h1>
+    <section id="podcasts">
+      <ul></ul>
+    </section>
+
+<script>
+var ul = document.querySelector("#podcasts > ul");
+
+var xmlDoc = undefined;
+var domParser = undefined;
+var xmlhttp = false;
+
+if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp = new XMLHttpRequest();
+} else {// code for IE6, IE5
+    if (navigator.appName.indexOf("Internet Explorer")) {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+}
+if (!xmlhttp) {
+    displayError('Ooops! There are no XMLHttpRequest!!!!');
+}
+
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4) {
+        if (xmlhttp.status == 200 || xmlhttp.status == 304) {
+            // console.log(xmlhttp.response);
+
+            if (window.DOMParser) {
+                domParser = new DOMParser();
+                xmlDoc = domParser.parseFromString(xmlhttp.responseText, "text/xml");
+            } else {// IE
+                xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+                xmlDoc.async = false;
+                xmlDoc.loadXML(xmlhttp.respnseText);
+            }
+
+            if (xmlDoc) {
+                var podItems = xmlDoc.getElementsByTagName("item");
+
+                for (var i = 0; i < podItems.length; i++) {
+                    makeListItem(podItems[i]);
+                }
+            }
+
+        } else {
+            alert('Error occured');
+        }
+
+    }
+};
+
+xmlhttp.open("GET", "jungto_rss.xml", false);
+xmlhttp.send();
+
+function makeListItem(item) {
+    var node = item.getElementsByTagName("title")[0];
+    var title = node.childNodes[0].nodeValue || "";
+
+    node = item.getElementsByTagName("pubDate")[0];
+    var pubdate = node.childNodes[0].nodeValue || "";
+    
+    node = item.getElementsByTagName("enclosure")[0];
+    var enclosure = node.attributes;
+    var url = enclosure.getNamedItem('url').nodeValue;
+    
+    //console.log( title + "/" + pubdate + "/" + enclosure);
+
+    var li = document.createElement("li");
+    var label = document.createElement("label");
+    
+    label.innerHTML = title + "," + pubdate + "<br/><a href='" 
+    + url + "'>'" + url + "</a>";
+    
+    li.appendChild(label);
+    ul.appendChild(li);
+}
+
+function displayError(error) {
+    var li = document.createElement('li');
+    var label = document.createElement('label');
+    label.innerHTML = error;
+
+    ul.appendChild(li);
+    return;
+}
+
+    </script>
+
+  </body>
+</html>

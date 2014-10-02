@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Part 1: lexical</title>
+    <script>
+      // first lexical
+      var x = 'outer side';
+      function foo() {
+        console.log(x); // undefined   'outer side'을 출력하지 않는다.
+        var x = 'inner side'; 
+        console.log(x); // 'inner side' 출력
+      }
+      //
+      foo();
+
+
+      // another lexical
+      function foo1() {
+        var a = 1;
+        foo2();
+      }
+
+      function foo2() {
+        return a;
+      }
+      //
+      foo1(); // 'is not defined' 에러 발생
+
+
+    </script>
+  </head>
+  <body>
+    <div id="header">
+    </div>
+      
+    <div id="content" class="page">
+    </div>
+    
+  </body>
+  
+</html>

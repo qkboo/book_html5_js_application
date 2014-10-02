@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+    <title>Part2 Ch1: Layout Display</title>
+<style type="text/css">
+    .container {
+      width:80%;
+      height:80%;
+      border: 1 solid #000;
+      background-color: #dad9db;
+      margin: 1 1 1 1;
+    }
+    div {
+        width: 100px;
+        height: 100px;
+        margin: 2px;
+        background-color: #9acc36;
+    }
+    .item1 {
+        display: inline;
+    }
+    .item2 {
+        display: block;
+    }
+</style>
+</head>
+
+<body>
+    <section class="container">
+        <div class="item1">아이템1</div>
+        <div class="item1">아이템2</div>
+        <div class="item1">아이템3</div>
+    </section>
+    <section class="container">
+        <div class="item2">아이템1</div>
+        <div class="item2">아이템2</div>
+        <div class="item2">아이템3</div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript">
+	window.onload = function() {
+		navigator.vibrate = (navigator.vibrate ||
+				android.vibrate );
+		
+	};
+	function android.vibrate(time) {
+		return function(time) {
+			window.android.vibrate(time);
+		};
+	}
+</script>
+
+</head>
+
+<body>
+	<h3>HTML5:: Vibrator</h3>
+
+</body>
+</html>

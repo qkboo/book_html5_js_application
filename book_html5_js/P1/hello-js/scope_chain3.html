@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>내 웹 페이지</title>
+        <script>
+         var foo = 1;
+          function callme() {
+            var a = '안녕', b = '하이~';
+            bar = '전역변수';   // global
+            
+            function child() {
+              var j = 'thanks!';
+              a = 'Thank you!';
+            }
+            first = 1;
+            var first;
+            child();
+            return a;
+          }
+
+          callme();
+          alert(a);    // ReferenceError가 발생한다.
+
+         </script>
+
+    </head>
+   <body>
+   </body>
+</html>

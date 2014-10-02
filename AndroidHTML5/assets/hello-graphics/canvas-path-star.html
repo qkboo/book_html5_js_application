@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Part3::Canvas Fonts</title>
+<style>
+   canvas { 
+      position: relative; 
+      border: 1px solid #000;
+  }
+</style>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+</body>
+<script>
+var canvas = document.querySelector("canvas");
+var context = canvas.getContext("2d");
+
+// Star
+context.beginPath();
+context.strokeStyle="black";
+context.lineWidth=5;
+context.moveTo(150, 90);
+context.lineTo(134, 134);
+context.lineTo(87, 134);
+context.lineTo(124, 163);
+context.lineTo(110, 208);
+context.lineTo(148, 181);
+context.lineTo(186, 208);
+context.lineTo(173, 163);
+context.lineTo(211, 134);
+context.lineTo(163, 134);
+context.lineTo(150, 90);
+
+context.closePath();
+
+context.fill();
+
+</script>
+
+</html>

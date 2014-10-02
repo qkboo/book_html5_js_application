@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  li {
+    font-size: 1.2em;
+  }
+</style>
+<script>
+  window.onload = function() {
+    var msg = "<h3>File related APIs</h3>";
+
+    // Check for the various File API support.
+    msg = '<li>window.File is ' + ( window.File?'supported!': 'not supported!');
+    msg += '<li>window.FileReader is ' + (window.FileReader?'supported!': 'not supported!');
+    msg += '<li>window.FileWriter is ' + (window.FileWriter?'supported!': 'not supported!');
+    msg += '<li>window.FileList is ' + (window.FileList?'supported!': 'not supported!');
+    msg += '<li>window.Blob is ' + (window.Blob?'supported!':'not supported!');
+    msg += '<li>URL.createObjectURL is ' + (URL.createObjectURL?' supported!':'not supported!');
+    msg += '<li>window.DeviceStorage is ' +  (window.DeviceStorage?'supported!': 'not supported!');
+    msg += '<li>window.requestFileSystem is ' + (window.requestFileSystem?'supported!':'not supported!');
+
+    document.querySelector("article[data-role='log']").innerHTML = msg;
+
+  }
+</script>
+</head>
+<body>
+  <h2>File related APIs</h2>
+  <article data-role="log"></article>
+</body>
+</html>
+​

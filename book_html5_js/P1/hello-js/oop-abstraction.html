@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>OOP::Abstraction</title>
+    <script>
+      function MyClass() {
+        this.m_data = 5;
+        this.m_msg = 'Hello, World';
+
+        this.setMessage = function(m) {
+          this.m_msg = m;
+        };
+        this.getMessage = function() {
+          return m_msg + ': data is ' + m_data;
+        };
+      }
+      
+      // ========== TEST ==========
+      var obj1 = new MyClass();
+
+      obj1.m_data = 20;
+      console.log(obj1.getMessage());
+
+      obj1.setMessage(100);
+      obj1.setMessage('Obj1 Hello~~~');
+      
+      console.log(obj1.getMessage());
+    </script>
+  </head>
+
+  <body>
+    
+  </body>
+  
+</html>

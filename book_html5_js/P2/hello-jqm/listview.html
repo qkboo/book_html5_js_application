@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>JQM :: listview</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=1" />
+
+    <!-- jQuery & Mobile -->
+    <link rel="stylesheet" href="resources/jquery.mobile-1.4.2.css" />
+    <script src="resources/jquery-2.1.0.js"></script>
+    <script src="resources/jquery.mobile-1.4.2.js"></script>
+
+    <!-- user styles -->
+    <style>
+      [data-role="listview"] aside {
+          float: left;
+          margin: 0 0.5 rem 0 0;
+          height: 100%;
+          position: relative;
+          z-index: 2;
+      }
+
+      [data-role="listview"] li > a aside, [data-role="listview"] li > a aside.icon {
+          background-color: transparent;
+          z-index: -1;
+      }
+
+      [data-role="listview"] img {
+          float: left;
+          margin: 0 0 0 0.5 rem;
+          text-align: right;
+      }
+
+      [data-role="listview"] aside.icon {
+          width: 3rem;
+          height: 6rem;
+          background: #fff no-repeat left center /100% auto;
+          font: 0/0 a;
+          display: block;
+          overflow: hidden;
+      }
+
+      [data-role="listview"] aside img {
+          display: block;
+          overflow: hidden;
+          width: 6rem;
+          height: 6rem;
+          background: transparent center center /cover;
+          position: relative;
+          z-index: 1;
+      }
+
+      nav {
+          display: block;
+          margin: 0.3 rem;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div data-role="page">
+    <section data-role="header" data-position="fixed">
+      <nav data-role="navbar">
+        <ul>
+          <li>
+            <a href="#one" class="ui-btn-active ui-state-persist">페이지1</a>
+          </li>
+          <li>
+            <a href="#two">페이지2</a>
+          </li>
+          <li>
+            <a href="#three">페이지3</a>
+          </li>
+        </ul>
+      </nav>
+
+    </section>
+
+
+    <section data-role="list">
+
+      <header>
+        <h2>ListView</h2>
+      </header>
+      <ul id="one" data-role="listview" data-divider-theme="b">
+        <li class="list_item">
+          <a href="#confirm"> <img src="images/pomnyun_profile.jpg" > 법륜스님의 <strong>즉문즉설</strong></a>
+        </li>
+        <li class="list_item">
+          <a href="#"><img src="images/vamp666.jpg" /> 이박사와 이작가의 <strong> 이이제이</strong></a>
+        </li>
+        <li class="list_item">
+          <a href="#"><img src="images/news3.jpg" /> <strong>곽수종의 YTN 생생경제</strong></a>
+        </li>
+        <li data-role="list-divider">최근 본 팟캐스트</li>
+        <li class="list_item">
+          <a href="#"><img src="images/news3.jpg" /> <strong>곽수종의 YTN 생생경제</strong></a>
+        </li>
+      </ul>
+
+      <header>
+        <h2>ListView :: Insets</h2>
+      </header>
+      <ul id="two" data-role="listview" data-inset="true">
+        <li class="list_item"><a href="#">리스트 항목 1</a></li>
+        <li class="list_item ui-alt-icon">리스트 항목 2</li>
+        <li class="list_item">리스트 항목 3</li>
+        <li class="list_item">리스트 항목 4</li>
+      </ul>
+
+      <header>
+        <h2>ListView :: Theme & Bubble counts</h2>
+      </header>
+
+      <ul id="three" data-role="listview" data-inset="true" data-theme="b" >
+
+        <li class="list_item">
+          <a href="#confirm"> <img src="images/pomnyun_profile.jpg" > 법륜스님의 <strong>즉문즉설</strong><span class="ui-li-count">12</span></a>
+        </li>
+        <li class="list_item">
+          <a href="#"><img src="images/vamp666.jpg" /> 이박사와 이작가의 <strong> 이이제이</strong>
+          <span class="ui-li-count">12</span></a>
+        </li>
+        <li class="list_item">
+          <a href="#"><img src="images/news3.jpg" /> <strong>곽수종의 YTN 생생경제</strong>
+          <span class="ui-li-count">12</span></a>
+        </li>
+        <li data-role="list-divider">최근 본 팟캐스트</li>
+        <li class="list_item">
+          <a href="#"><img src="images/news3.jpg" /> <strong>곽수종의 YTN 생생경제</strong></a>
+        </li>
+      </ul>
+
+      <header>
+        <h2>ListView :: Collapsed ListView</h2>
+      </header>
+
+      <div data-role="collapsible" data-theme="b" data-content-theme="b">
+      <h2>팟캐스트를 선택해 주세요</h2>
+        <ul data-role="listview" data-inset="true">
+          <li class="list_item">
+            <a href="#confirm"> <img src="images/pomnyun_profile.jpg" > 법륜스님의 <strong>즉문즉설</strong><span class="ui-li-count">12</span></a>
+          </li>
+          <li class="list_item">
+            <a href="#"><img src="images/vamp666.jpg" /> 이박사와 이작가의 <strong> 이이제이</strong>
+            <span class="ui-li-count">12</span></a>
+          </li>
+          <li class="list_item">
+            <a href="#"><img src="images/news3.jpg" /> <strong>곽수종의 YTN 생생경제</strong>
+            <span class="ui-li-count">12</span></a>
+          </li>
+          <li data-role="list-divider">최근 본 팟캐스트</li>
+          <li class="list_item">
+            <a href="#"><img src="images/news3.jpg" /> <strong>곽수종의 YTN 생생경제</strong></a>
+          </li>
+        </ul>
+      </div>
+
+    </section><!-- list -->
+
+    </div><!-- page -->
+  </body>
+</html>

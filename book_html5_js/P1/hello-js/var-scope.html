@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<title>P1::Variable Scope</title>
+
+<script>
+function Person(firstname, lastname, age, eyecolor) {
+    this.firstname = firstname || '아무개';
+    this.lastname = lastname || '';
+    this.age = age || -1;
+    this.eyecolor = eyecolor;
+
+   this.getName = function() {
+       return this.firstname + this.lastname;
+   }
+    this.setEyecolor = function(color) {
+        this.eyecolor = color;
+    }
+}
+
+var honggildong = new Person("길동", "홍", 20, "black");
+var soonsin = new Person("Soon", "Sin", 48, "green");
+console.log( "honggildong name is " + honggildong.getName() );
+console.log( "soonsin name is " + soonsin.getName() );
+
+// 
+function Person2(name1, name2, n, color) { 
+    var firstname = name1 || '아무개';
+    var lastname = name2 || '';
+    var age = n || -1;
+    var eyecolor = color;
+
+    this.getName = function() {
+       return this.firstname + this.lastname;
+   }
+   console.log('Person2 instanciate!'); 
+}
+// Person의 인스턴스 객체인 p1
+var user1 = new Person2();
+console.log( "User name is " + user1.getName() );
+
+
+</script>
+</html>

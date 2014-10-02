@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Battery Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=1" />
+    <!-- jQuery & Mobile -->
+    <link rel="stylesheet" href="resources/jquery.mobile-1.4.2.css" />    
+    <script src="resources/jquery-2.1.0.js"></script>
+    <script src="resources/jquery.mobile-1.4.2.js"></script>
+    
+    <script>
+	$(document).ready( function() {
+		// 안드로이드 브로드캐스트 리시버에서 수신하는 배터리 정보
+		window.android.startBatteryReceiver();
+		
+		// 
+		//var result = window.android.batteryStatus();
+	    //updateBatteryStatus(result);
+		    
+	});
+	
+
+    function updateBatteryStatus(jsObject) {
+		console.log(JSON.stringify(jsObject));
+		var battery = jsObject;//JSON.parse(jsObject);
+
+		// get the battery information to be displayed
+	    $('#level').text("Battery level: " + Math.round(battery.level * 100) + "%");
+	    $('#status').text("Charging status: " + ((battery.charging) ? "true" : "false"));
+	    $('#temp').text("Temparature: " + battery.temparature + "F");
+	    if (battery.charging) {
+	        $('#charged').text("Battery time to charge: " + battery.chargingTime);
+	    } else {
+	        $('#charged').text("Battery time left: " + (Math.round(battery.dischargingTime / 60)) + " minutes");
+	    }
+    }
+    </script>
+
+	<style>
+	#main-contents > label{
+		display: block;
+		margin-bottom:15px;
+		font-size: xx-large;
+	}
+	
+	label .level .status .charged {
+		display: block;
+	}
+	</style>
+  </head>
+
+  <body>
+    <section data-role="page">
+      <article id="main-contents" role="main" class="ui-content">
+		<div id="box">
+		    <div id="battery"></div>
+		    <div id="text">
+		        <label><strong>Battery 상태</strong></label>
+		        <label id="level">Battery level: unknown</label>
+		        <label id="status">Charging status: unknown</label>
+		        <label id="charged">Battery charged: unknown</label>
+		        <label id="temp">Temparature: unknown</label>
+		    </div>
+		</div>        
+      </article>
+    </section><!-- /page -->
+
+  </body>
+  </html>

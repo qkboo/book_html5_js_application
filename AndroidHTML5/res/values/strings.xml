@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Android HTML5 App</string>
+    <string name="title_html_detail">Html5 Detail</string>
+
+    <string name="msg_hello">안녕하세요.</string>
+    <string name="msg_intro">안드로이드 앱이 제공하는 국제화 방법입니다.</string>
+    <string name="msg_locale">로케일</string>
+    
+    
+</resources>

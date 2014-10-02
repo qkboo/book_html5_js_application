@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Part1:Ch2/closure 2</title>
+<script>
+	var x = -1;
+
+	function outer() {
+		var x = 0;
+		return function() {
+			return x++;
+		}
+	}
+	// 코드를 실행해 보면
+	var foo = outer();
+	foo(); // 1
+</script>
+</head>
+
+<body>
+
+</body>

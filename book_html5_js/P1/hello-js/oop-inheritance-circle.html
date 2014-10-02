@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>OOP::Encapsulation</title>
+        <script>
+            function Shape() {
+            }
+
+
+            Shape.prototype.getArea = function() {
+                return this.area;
+            };
+            Shape.prototype.getParameter = function() {
+                return this.parameter;
+            };
+            Shape.prototype.draw = function() {
+                console.log("Drawing generic shape");
+            };
+
+            // Circle
+            Circle.prototype = new Shape();
+            Circle.prototype.draw = function() {
+                console.log("Drawing circle");
+            };
+
+            function Circle(r) {
+                this.area = Math.PI * r * r;
+                this.parameter = 2 * Math.PI * r;
+            }
+
+            // ========== TEST ==========
+            var circle = new Circle(10);
+
+            console.log("Circle.constructor = " + circle.constructor);
+            console.log("Circle.prototype = " + circle.prototype);
+            
+            console.log("Circle area = " + circle.getArea());
+            console.log("Circle parameter = " + circle.getParameter());
+            circle.draw();
+
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

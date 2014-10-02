@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+	<input type="button" value="위치 정보 취득" onclick="showPos()" />
+	<script type="text/javascript">
+		function showPos() {
+			// geolocation을 지원하는 여부 확인
+			if (navigator.geolocation == undefined) {
+				alert("위치 정보를 이용할 수 없습니다.");
+				return;
+			}
+			// 위치 정보 취득
+			navigator.geolocation.getCurrentPosition(successCallback,
+					errorCallback);
+			// 성공했을 때
+			function successCallback(position) {
+				document.write("<h1>성공</h1>");
+				for ( var prop in position.coords) {
+					document.write(prop + ":" + position.coords[prop]
+							+ "<br/>\n");
+				}
+			}
+			// 실패했을 때
+			function errorCallback(err) {
+				alert("실패(" + err.code + ")" + err.message);
+			}
+		};
+	</script>
+</body>
+</html>

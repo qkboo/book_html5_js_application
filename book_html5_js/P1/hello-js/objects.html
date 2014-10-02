@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>OOP::Object properties</title>
+    <script>
+        var person = {
+            firstname : "강태",
+            lastname : "고",
+            age : 20,
+            eyecolor : "black",
+            setEyecolor: function(color) {
+              this.eyecolor = color;
+            }
+        };
+
+        var person = new Object();
+        person.firstname = "강태";
+        person.lastname = "고";
+        person.age = 20;
+        person.eyecolor = "blue";
+        person.setEyecolor = function(color) {
+            this.eyecolor = color;
+        };
+
+        function Person(firstname, lastname, age, eyecolor) {
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.age = age;
+            this.eyecolor = eyecolor;
+
+            this.setEyecolor = function(color) {
+                this.eyecolor = color;
+            }
+        }
+
+        var honggildong = new Person("길동", "홍", 1000, "black");
+        var soonsin = new Person("Soon", "Sin", 48, "green");
+
+
+
+        // new member
+        honggildong.nickname = '밤 고양이';
+        console.log(honggildong.firstname);
+        console.log(honggildong.lastname);
+        console.log(honggildong.nickname);
+
+
+        // has member?
+        console.log( "address property: " + honggildong.hasOwnProperty("address") );
+        console.log( "address property: " + honggildong.hasOwnProperty("firstname") );
+        console.log( "address property: " + honggildong.hasOwnProperty("nickname") );
+
+
+        // in operator
+        console.log( "address" in honggildong ); // flase
+        console.log( "firstname" in honggildong ); // true
+        console.log( "nickname" in honggildong ); // true
+
+
+        // for..in
+        for( var prop in honggildong) 
+            console.log( prop);
+
+
+    </script>
+  </head>
+
+  <body>
+
+  </body>
+
+</html>

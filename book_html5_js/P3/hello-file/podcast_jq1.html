@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=1" />
+
+    <!-- jQuery & Mobile -->
+    <script src="resources/jquery-2.1.0.js"></script>
+  </head>
+
+  <body>
+    <h1>Podcast</h1>
+    <section id="podcasts">
+      <ul></ul>
+    </section>
+
+    <script>
+        var ul = document.querySelector("#podcasts > ul");
+
+        var xmlDoc = undefined;
+        var domParser = undefined;
+        var xmlhttp = false;
+
+        $(document).ready(function() {
+          $.support.cors = true;
+          $.ajax({
+            type: "GET",
+            url: "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&output=xml&num=999&q=http://jungto.libsyn.com/rss",
+            // url: "http://jungto.libsyn.com/rss",
+            //url: "jungto_rss.xml",
+            dataType: "jsonp",
+            crossDomain: true,
+            timeout: 10000,
+            success:function(data, textStatus, jqXHR) {
+              // console.log (data);
+              
+              xmlDoc = $.parseXML(data.responseData.xmlString);
+              
+              $(xmlDoc).find('item').each(function(){
+                
+                var title = $(this).find('title').text();
+                var pubdate = $(this).find('pubDate').text();
+                var url = $(this).find('enclosure').attr('url');
+                //console.log(title + ":" + url);
+                //$("#friends-list").append("<li><a href='" + url + "'>" + title + "</a></li>");
+
+                var li = makeLi2(title, pubdate, url);
+                ul.appendChild(li);
+                
+              });
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              console.log("error: " + errorThrown);
+            }
+          });
+        });
+
+        // 주어진 모든 노드를 처리하는 메서드
+        function makeLi2() {
+            // console.log(arguments);
+            var li = document.createElement("li");
+            var label = document.createElement("label");
+            
+            var title = arguments[0] || "";
+            var pubdate = arguments[1] || "";
+            var url = arguments[2] || "";
+            
+            label.innerHTML = title + "," + pubdate + "," + url;
+            
+            li.appendChild(label);
+            return li;
+        }
+
+        function displayError(error) {
+            var li = document.createElement('li');
+            var label = document.createElement('label');
+            label.innerHTML = error;
+
+            ul.appendChild(li);
+        }
+
+    </script>
+
+  </body>
+</html>

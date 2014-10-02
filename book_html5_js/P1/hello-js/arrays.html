@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Javascript::Array</title>
+
+  </head>
+  <body></body>
+</html>
+
+  <script>
+    var arr = new Array();
+    var arr2 = [];
+    var arr3 = new Array("1", "100", 2000, 3000 );
+    var arr4 = ["안", "녕", "하", "세", "요"];
+    
+    arr[0] = "1", arr[1] = 1000;
+    
+    console.log("arr length: " + arr.length);
+
+    for (var i = 0; i < arr3.length; i += 1) {
+        console.log("myArray[" + i + "]" + arr3[i]);
+    }
+    // concat()
+    var myconcat = arr3.concat(arr4);
+    console.log(myconcat);
+
+    // join()
+    console.log(arr.join() + "|" + arr4.join("~"));
+
+    // sort()
+    var myArray = ['o', 'c', 'b', 'a', 'u'];
+    console.log(myArray.sort());
+    console.log(myArray.reverse());
+
+    // sort(callback())
+    var myArray = [20, 3, 9, 10, -9, 5];
+    function sortNumber(a, b) {
+        return a - b;
+    }
+    console.log(myArray.sort(sortNumber));
+    
+    // pop(), push()
+    arr3.pop(); // 3000
+    arr3.push(5000); // 4
+    
+
+    // indexof
+    var wordSet = ["acacia", "ilis", "rose", "lily", "iris", "ilis", "gypsophila", "ilis", "##"];
+    // substitution
+    while (wordSet.indexOf("##") != -1) {
+        wordSet.splice(wordSet.indexOf("ilis"), 1, "iris");
+    }
+
+</script>

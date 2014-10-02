@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Part3::Canvas Fonts</title>
+<style>
+   canvas { 
+      position: relative; 
+      border: 1px solid #000;
+  }
+</style>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="300"></canvas>
+</body>
+<script>
+var canvas = document.querySelector("canvas");
+var context = canvas.getContext("2d");
+
+context.beginPath();
+context.strokeStyle="orange";
+context.lineWidth=5;
+// x,y : 가로,세로 좌표
+// radius : 반지름
+// startAngle : 시작각도
+// endAngle : 원 ->  2*Math.PI
+// 반호 -> Math.PI
+// 직각 90도 -> 0.5*Math.PI
+// 시계방향 false, 반시계 방향 true
+context.arc(200, 200, 50,0,  Math.PI, true);
+context.fillStyle="red";
+context.closePath();
+context.stroke();
+context.fill();
+
+</script>
+
+</html>

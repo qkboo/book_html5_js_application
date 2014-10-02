@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Part3::Canvas Fonts</title>
+<style>
+   canvas { 
+      position: relative; 
+      border: 1px solid #000;
+  }
+</style>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="300"></canvas>
+</body>
+<script>
+var canvas = document.querySelector("canvas");
+var context = canvas.getContext("2d");
+// 현재 관점에서 텍스트를 렌더링
+context.fillStyle='silver';
+context.fillRect( 10, 20, 250, 100);
+
+// 수평방향 아래로 0.2만큼 기운다.
+context.transform(1, 0.2, 0, 1, 0, 0);
+
+context.fillStyle='silver';
+context.fillRect(10, 20, 250, 100);
+
+context.fillStyle='red';
+context.font='30px Arial';
+context.fillText('Transform', 20, 80);
+
+
+</script>
+
+</html>

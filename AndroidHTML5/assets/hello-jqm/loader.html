@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>JQM :: listview</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=1" />
+
+    <!-- jQuery & Mobile -->
+    <link rel="stylesheet" href="resources/jquery.mobile-1.4.2.css" />    
+    <script src="resources/jquery-2.1.0.js"></script>
+    <script src="resources/jquery.mobile-1.4.2.js"></script>
+  </head>
+  <body>
+
+	<button class="show-page-loading-msg" data-textonly="false"
+		data-textvisible="false" data-msgtext="" data-inline="true">기본아이콘</button>
+	<button class="show-page-loading-msg" data-textonly="false"
+		data-textvisible="true" data-msgtext="" data-inline="true">아이콘텍스트</button>
+	<button class="show-page-loading-msg" data-textonly="true"
+		data-textvisible="true" data-msgtext="Text only loader"
+		data-inline="true">텍스트만</button>
+	<button class="hide-page-loading-msg" data-inline="true"
+		data-icon="delete">숨기기</button>
+
+	<script type="text/javascript">
+	$( document ).on( "click", ".show-page-loading-msg", function() {
+	    var $this = $( this ),
+	        theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+	        msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+	        textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+	        textonly = !!$this.jqmData( "textonly" );
+	        html = $this.jqmData( "html" ) || "";
+	    $.mobile.loading( "show", {
+	            text: msgText,
+	            textVisible: textVisible,
+	            theme: theme,
+	            textonly: textonly,
+	            html: html
+	    });
+	})
+	.on( "click", ".hide-page-loading-msg", function() {
+	    $.mobile.loading( "hide" );
+	});
+	</script>
+
+</body>
+  </html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<body>
+  
+  <header>Button UI 이벤트를 이용합니다.</header>
+  <button name="버튼1">버튼입니다.</button>
+  
+  <script>
+    var button = document.querySelector('button#');
+    if( typeof document.attachEvent !== 'undefined' ) {
+       document.attachEvent('onclick', console.log );
+    } else {
+      
+    }
+  </script>
+</body>

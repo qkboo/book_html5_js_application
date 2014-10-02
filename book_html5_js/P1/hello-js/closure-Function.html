@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Part1:closure</title>
+<script>
+var x = 1;
+function closure() {
+  var x = 'abc';
+  return new Function('return x'); // x는 전역 스코프를 참조
+}
+//
+var closure_instance = closure();
+console.log(closure_instance()); // 1
+</script>
+</head>
+
+<body>
+
+</body>

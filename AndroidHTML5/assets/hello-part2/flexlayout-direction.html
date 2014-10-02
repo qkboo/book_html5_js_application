@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>CSS: Flexlayout</title>
+    <style type="text/css">
+
+    .container_ltr {
+      display: -webkit-flex;
+      display: -flex;
+      flex-direction: row;
+      direction: ltr;
+      background-color: #dad9db;
+      border: blue;
+    }
+    .container_rtl {
+      display: -webkit-flex;
+      display: -flex;
+      flex-direction: row;
+      direction: rtl;
+      background-color: #dad9db;
+      border: blue;
+    }
+    .flex-item {
+      width: 100px;
+      height: 100px;
+      margin: 2px;
+      background-color: #9acc36;
+    }
+    </style>
+        
+    </head>
+
+    <body>
+    <div class="container_ltr">
+        <div class="flex-item">아이템1</div>
+        <div class="flex-item">아이템2</div>
+        <div class="flex-item">아이템3</div>
+    </div>    
+    <div class="container_rtl">
+        <div class="flex-item">아이템1</div>
+        <div class="flex-item">아이템2</div>
+        <div class="flex-item">아이템3</div>
+    </div>    
+</body>
+
+</html>

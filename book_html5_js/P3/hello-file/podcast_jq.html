@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=1" />
+
+    <!-- jQuery & Mobile -->
+    <script src="resources/jquery-2.1.0.js"></script>
+  </head>
+
+  <body>
+    <h1>Podcast</h1>
+    <section id="podcasts">
+      <ul></ul>
+    </section>
+
+    <script>
+        var list = document.querySelector("#podcasts > ul");
+
+        var xmlDoc = undefined;
+
+        $(document).ready(function() {
+          $.support.cors = true;
+          $.ajax({
+            type: "GET",
+            //url: "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&output=xml&num=999&q=http://jungto.libsyn.com/rss",
+            //dataType: "jsonp",
+            // url: "http://jungto.libsyn.com/rss",
+            url: "jungto_rss.xml",
+            dataType: "xml",
+            crossDomain: true,
+            timeout: 10000,
+            success:function(data, textStatus, jqXHR) {
+              // console.log (data);
+              
+              // dataType: xml
+              xmlDoc = data;
+              
+              // dataType: text
+              //xmlDoc = $.parseXML(data);//.responseData.xmlString);
+              
+              $(xmlDoc).find('item').each(function(){
+                
+                var title = $(this).find('title').text();
+                var pubdate = $(this).find('pubDate').text();
+                var url = $(this).find('enclosure').attr('url');
+
+                makeListItem(title, pubdate, url);
+                
+              });
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              console.log("error: " + errorThrown);
+            }
+          });
+        });
+
+
+        function makeListItem(){
+            var title = arguments[0];
+            var url = arguments[2];
+
+            var oDate = new Date( arguments[1]);
+            var date = oDate.getDate();
+            var month = oDate.getMonth();
+            var year = oDate.getFullYear();
+
+            var item = document.createElement("li");
+            item.innerHTML = title + "," + year +"-"+month+"-"+date + "," + url;
+            
+        	list.appendChild(item);
+        	
+        }
+
+        function displayError(error) {
+            var li = document.createElement('li');
+            var label = document.createElement('label');
+            label.innerHTML = error;
+
+            ul.appendChild(li);
+        }
+
+    </script>
+
+  </body>
+</html>

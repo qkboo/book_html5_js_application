@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>Part2 Ch1: Flexlayout</title>
+    <style type="text/css">
+
+    .container {
+      display: -webkit-flex;
+      display: -flex;
+      flex-direction: row;
+      background-color: #dad9db;
+      border: blue;
+    }    
+    .container2 {
+      display: -webkit-flex;
+      display: -flex;
+      flex-direction: row-reverse;
+      background-color: #dad9db;
+      border: blue;
+    }
+    .container3 {
+      display: -webkit-flex;
+      display: -flex;
+      flex-direction: column;
+      background-color: #dad9db;
+      border: blue;
+    }    
+    .container4 {
+      display: -webkit-flex;
+      display: -flex;
+      flex-direction: column-reverse;
+      background-color: #dad9db;
+      border: blue;
+    }
+    .flex-item {
+      width: 100px;
+      height: 100px;
+      margin: 2px;
+      background-color: #9acc36;
+    }
+    </style>
+        
+    </head>
+
+<body>
+    <div class="container">
+        <div class="flex-item">아이템1</div>
+        <div class="flex-item">아이템2</div>
+        <div class="flex-item">아이템3</div>
+    </div>    
+    <div class="container2">
+        <div class="flex-item">아이템1</div>
+        <div class="flex-item">아이템2</div>
+        <div class="flex-item">아이템3</div>
+    </div>    
+    <div class="container3">
+        <div class="flex-item">아이템1</div>
+        <div class="flex-item">아이템2</div>
+        <div class="flex-item">아이템3</div>
+    </div>    
+    <div class="container4">
+        <div class="flex-item">아이템1</div>
+        <div class="flex-item">아이템2</div>
+        <div class="flex-item">아이템3</div>
+    </div>    
+</body>
+
+</html>

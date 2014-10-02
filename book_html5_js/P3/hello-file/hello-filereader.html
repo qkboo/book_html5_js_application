@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  li {
+    font-size: 1.2em;
+  }
+</style>
+</head>
+<body>
+  <section>
+    <h2>여러 File을 선택하세요.</h2>
+    <article data-role="log"></article>
+  
+    <input type="file" id="files" name="files[]" multiple />
+    <output id="list"></output>
+  </section>
+
+
+<script>
+  window.onload = function() {
+    
+    // http://www.html5rocks.com/en/tutorials/file/dndfiles/
+
+    // Check for the various File API support.
+    if (!window.File && !window.FileReader && !window.FileList && !window.Blob) {
+      document.querySelector("article[data-role='log']").innerHTML = "The File APIs are not fully supported in this browser.";
+      return;
+    }
+
+    document.querySelector('#files').addEventListener('change', handleFileSelect, false);
+
+  }
+
+  function handleFileSelect(event) {
+    var files = event.target.files; // FileList object
+
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li><strong>', f.name /*escape(f.name)*/, '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                  '</li>');
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+  }
+
+</script>
+</body>
+</html>
+​

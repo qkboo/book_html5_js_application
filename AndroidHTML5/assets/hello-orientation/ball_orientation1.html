@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Orientation Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=1" />
+    <!-- jQuery & Mobile -->
+    <link rel="stylesheet" href="resources/jquery.mobile-1.4.2.css" />    
+    <script src="resources/jquery-2.1.0.js"></script>
+    <script src="resources/jquery.mobile-1.4.2.js"></script>
+    
+    <script>
+	$(document).ready( function() {
+		var ball   = $('.ball');
+		var ground = $('.ground');
+        var status = $(".status");
+
+		var maxX = ground.css('clientWidth')  - ball.css('clientWidth');
+		var maxY = ground.css('clientWidth') - ball.css('clientHeight');
+
+
+    	if(window.DeviceOrientationEvent) {
+            window.addEventListener("deviceorientation", orientationHandler, true); 
+        
+        } else {
+            alert("Not found", "Device not support DeviceOrientation");
+        }
+    	
+    	function orientationHandler(event) {
+			var x = event.beta;  // In degree in the range [-180,180]
+			var y = event.gamma; // In degree in the range [-90,90]
+			
+			status.html("beta : " + x + "<br\>").append("gamma: " + y + "\n");
+			
+			// Because we don't want to have the device upside down
+			// We constrain the x value to the range [-90,90]
+			if (x >  90) { x =  90};
+			if (x < -90) { x = -90};
+			
+			// To make computation easier we shift the range of 
+			// x and y to [0,180]
+			x += 90;
+			y += 90;
+			
+			// 10 is half the size of the ball
+			// It center the positioning point to the center of the ball
+			ball.css("top", (maxX*x/180 - 10) +"px" );
+			ball.css("left", (maxY*y/180 - 10) + "px" );
+        }
+	});
+    </script>
+
+	<style>
+	section.ground {
+	  position: relative;
+	  top: 5px;
+	  width : 300px;
+	  height: 300px;
+	  border: 4px solid #c0c0c0;
+	  border-radius: 1em;
+	}
+	
+	.ball {
+	  position: absolute;
+	  top   : 90px;
+	  left  : 90px;
+	  width : 20px;
+	  height: 20px;
+	  background: red;
+	  border-radius: 100%;
+	}
+	.status {
+	  position: relative;
+	  top: 5px;
+	}
+	</style>
+  </head>
+
+  <body>
+    <section data-role="page">
+      <article id="main-contents" role="main" class="ui-content">
+        <h4>Ball</h4>
+        <section class="ground">
+	        <div class="ball"></div>
+        </section>
+        <div class="status">ddd</div>
+      </article>
+    </section><!-- /page -->
+
+  </body>
+  </html>

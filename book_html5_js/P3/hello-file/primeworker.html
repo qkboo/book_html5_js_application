@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        #msgResult {
+            display:inline;
+        }
+        #msgLog {
+            width:100%;
+            height: 5em;
+            display:inline-block;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Web Worker를 이용한 소수 계산:</h1>
+
+        <label>범위:</label>
+        <input type="text" id="num" value="100000">
+    </section>
+    <section>
+        <div id="msgResult">계산 결과는...</div>
+        <div id="msgLog"></div>
+    </section>
+    <section>
+        <button id="calcBtn">계산</button>
+        <button id="stopBtn">계산 중지</button>    
+    </section>
+
+</body>
+
+
+<script type="text/javascript">
+    
+    var btn_stop = document.querySelector("#stopBtn");
+    var btn_calc = document.querySelector("#calcBtn");
+    var logTag =document.querySelector("#msgResult");
+    var msgTag =document.querySelector("#msgLog");
+    
+    window.onload = function() {
+        if( getWebWorkerSupport() ) {
+            logTag.innerHTML = "이 브라우져는 Web worker를 지원합니다";
+        } else {
+            logTag.innerHTML = "이 브라우져는 지원하지 않습니다";
+        }
+        
+        var primeWorker;
+        btn_calc.addEventListener("click", function() {
+            if (primeWorker) {
+                primeWorker.terminate();
+            }
+            var num = document.querySelector("input[type='text']").value;
+            
+            // Worker 작업
+            primeWorker = new Worker("primeworker.js");
+            
+            // Worker로 부터 메시지를 받을 수 있도록 이벤트를 설정
+            primeWorker.onmessage = function(event) {
+                var msg = event.data.split("/");
+                logTag.innerHTML = msg[0];
+                msgTag.innerHTML = msg[1];
+            };
+            primeWorker.postMessage(num);
+        });
+        
+        btn_stop.addEventListener("click", function () {
+            if (primeWorker) {
+            	primeWorker.terminate();
+                alert("중지했습니다.");
+            }
+        });
+    };
+
+    function getWebWorkerSupport() {
+        return (typeof(Worker)!== "undefined") ? true: false;
+    }
+
+</script>
+
+</html>

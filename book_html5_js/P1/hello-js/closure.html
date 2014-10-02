@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Functional Programming:: Procedural example</title>
+    <script>
+
+function closure(foo) {
+  return function(bar) {
+    return foo + bar;
+  };
+};
+
+var sum1 = closure(1); // closure 함수의 인자로 1이 넘어간다.
+var sum2 = closure(90);
+console.log(sum1(1)); // sum1(1) 함수의 매개변수는 익명함수 인자로 넘어간다.
+console.log(sum2(90));
+
+
+//
+function counting() {
+  var cnt = 0;
+  return function () {
+    return cnt++;
+  }
+}
+// TEST
+var countme = new counting();
+console.log(countme())
+console.log(countme())
+console.log(countme())
+console.log(countme())
+console.log(countme())
+
+    </script>
+  </head>
+
+  <body>
+      
+  </body>

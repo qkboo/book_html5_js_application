@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+  var msg, mapview, map, marker;
+  window.onload = function() {
+    msg = document.getElementById("board");
+    mapview = document.getElementById('mapview')
+
+  }
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      msg.innerHTML = "This browser is not support Geolocation!";
+    }
+  }
+
+  function showPosition(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    var latlng = new google.maps.LatLng(lat, lon)
+    msg.innerHTML = latlng;
+    mapview.style.height = '250px';
+    mapview.style.width = '100%';
+
+    var myOptions = {
+      zoom : 16,
+      center : latlng,
+      mapTypeId : google.maps.MapTypeId.ROADMAP
+    };
+    map = new google.maps.Map(mapview, myOptions);
+    // 아이콘 표시
+    marker = new google.maps.Marker({
+      position : latlng,
+      map : map,
+      title : "우리집"
+    });
+    // 아이콘을 클릭했을 때 발생할 이벤트를 설정
+    google.maps.event.addListener(marker, 'click', toggleBounce);
+
+    
+
+    // 단순 클릭
+    google.maps.event.addListener(map, 'click', function(event) {
+      msg.innerHTML = "어디지?";
+    });
+  }
+
+  function toggleBounce() {
+    if (marker.getAnimation() != null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  }
+  
+  function showError(error) {
+    switch(error.code) {
+      case error.PERMISSION_DENIED:
+        msg.innerHTML = "Geolocation 요청이 거부되었습니다."
+        break;
+      case error.POSITION_UNAVAILABLE:
+        msg.innerHTML = "위치 정보가 존재하지 않습니다."
+        break;
+      case error.TIMEOUT:
+        msg.innerHTML = "사용자 위치를 획득하는데 시간이 초과되었습니다."
+        break;
+      case error.UNKNOWN_ERROR:
+        msg.innerHTML = "알수없는 에러가 발생했습니다."
+        break;
+    }
+  }
+</script>
+<button onclick="getLocation()">
+  현재 위치 지도
+</button>
+<section>
+  <label>Geolocation :</label><div id="board"></div>
+</section>
+<section id="mapview" style="width:320px; height:480px;"></section>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Space Shooter Demo</title>
+		<style>
+			canvas {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background: transparent;
+			}
+			#background {
+				z-index: -2;
+			}
+			#main {
+				z-index: -1;
+			}
+			#ship {
+				z-index: 0;
+			}
+		</style>
+	</head>
+	<body>
+	<!-- http://blog.sklambert.com/html5-canvas-game-the-player-ship/ -->
+		<!-- 배경 캔버스 -->
+		<canvas id="background" width="600" height="360">
+			Your browser does not support canvas. Please try again with a different browser.
+		</canvas>
+		<!-- 애니미 캐릭터와 총알을 위한 캔버스 -->
+		<canvas id="main" width="600" height="360">
+		</canvas>
+		<!-- 캐릭터 캔버스 -->
+		<canvas id="ship" width="600" height="360">
+		</canvas>
+		<script src="index2.js"></script>
+	</body>
+</html>

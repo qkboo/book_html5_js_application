@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>JQM :: Page & Navbar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=1" />
+
+    <!-- jQuery & Mobile -->
+    <link rel="stylesheet" href="resources/jquery.mobile-1.4.2.css" />    
+    <script src="resources/jquery-2.1.0.js"></script>
+    <script src="resources/jquery.mobile-1.4.2.js"></script>
+  </head>
+  <body>
+
+
+  <section data-role="page" id="page1">
+    <div data-role="header" data-id="foo1" data-position="fixed">
+      <nav data-role="navbar">
+          <ul>
+            <li><a href="#page1" class="ui-btn-active">페이지1</a></li>
+            <li><a href="#page2">페이지2</a></li>
+            <li><a href="#page3">페이지3</a></li>
+          </ul>
+      </nav>
+    </div>
+    
+
+    <div>
+       페이지 1입니다.
+    </div>
+  </section>
+  <section data-role="page" id="page2">
+      <div data-role="header"  data-id="foo1" data-position="fixed">
+      <nav data-role="navbar">
+          <ul>
+            <li><a href="#page1">페이지1</a></li>
+            <li><a href="#page2">페이지2</a></li>
+            <li><a href="#page3">페이지3</a></li>
+          </ul>
+      </nav>
+    </div>
+    <div>
+       페이지 2입니다.
+    </div>
+  </section>
+  <section data-role="page" id="page3">
+      <div data-role="header"  data-id="foo1" data-position="fixed">
+      <nav data-role="navbar">
+          <ul>
+            <li><a href="#page1">페이지1</a></li>
+            <li><a href="#page2">페이지2</a></li>
+            <li><a href="#page3">페이지3</a></li>
+          </ul>
+      </nav>
+    </div>
+    <div>
+       페이지 3입니다.
+    </div>
+  </section>
+
+  </body>
+  </html>

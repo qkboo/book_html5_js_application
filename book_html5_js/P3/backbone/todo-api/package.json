@@ -1,0 +1,11 @@
+{
+    "name": "Todo-RESTFull-API",
+    "description": "Express v4 Application",
+    "version": "0.0.1",
+    "main": "server.js",
+    "dependencies": {
+        "express": "~4.x",
+        "mongoose": "~3.8.x",
+        "body-parser": "~1.6.x"
+    }
+}

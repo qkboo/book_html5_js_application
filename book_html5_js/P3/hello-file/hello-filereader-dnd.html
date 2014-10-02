@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  #dropMe {
+    display: block;
+    background-color: #e0e0e0;
+    width: 300px;
+    height: 8em;
+  }
+</style>
+</head>
+<body>
+  <section>
+    <h2>File을 드래그&드롭 해주세요.</h2>
+    <article data-role="log"></article>
+    <div id="dropMe">파일을 이곳에 끌어오세요.</div>
+
+    <output id="list"></output>
+  </section>
+
+
+<script>
+  window.onload = function() {
+    
+    // http://www.html5rocks.com/en/tutorials/file/dndfiles/
+
+    // Check for the various File API support.
+    if (!window.File && !window.FileReader && !window.FileList && !window.Blob) {
+      document.querySelector("article[data-role='log']").innerHTML = "The File APIs are not fully supported in this browser.";
+      return;
+    }
+
+    var dropMe = document.querySelector('#dropMe');
+ window.addEventListener("dragenter", dragenter, true);
+    window.addEventListener("dragleave", dragleave, true);
+
+    dropMe.addEventListener('dropover', handleDragOver, true);
+    dropMe.addEventListener('drop', handleFileSelect, true);
+
+  }
+
+  function handleDragOver(evt) {
+     evt.preventDefault();
+    // evt.stopPropagation();
+    // evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+  }
+
+  function handleFileSelect(evt) {
+     evt.stopPropagation();
+    evt.preventDefault();
+
+    var files = evt.dataTransfer.files; // FileList object.
+    
+    if (files.length == 0) { return false; }
+
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li><strong>', f.name, '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                  '</li>');
+    }
+    document.querySelector('#list').innerHTML = '<ul>' + output.join('') + '</ul>';
+  }
+function dragenter(e) {
+    dropMe.style.backgroundColor = 'red';
+  }
+  function dragleave(e) {
+    dropMe.style.backgroundColor = 'blue';
+  }
+</script>
+</body>
+</html>
+​

@@ -1,0 +1,16 @@
+/* 
+    Document   : common
+    Created on : 2011. 10. 22, 오후 2:05:37
+    Author     : idea1
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+body{
+    margin: 0px; padding: 0px; font-size: 20px;
+}
+img{ border: 0px;}
