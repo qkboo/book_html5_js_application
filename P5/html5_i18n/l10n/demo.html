@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>l10n.js demo</title>
+    <style type="text/css">
+      body {
+        font-size: xx-large;
+        text-align: center;
+      }
+    </style>
+    <script type="text/javascript" src="json2.js"></script>
+    <script type="text/javascript" src="l10n.min.js"></script>
+    <script type="text/javascript" src="localizations.js"></script>
+  </head>
+  <body>
+    <section id="locales">
+      <select id="lang">
+        <option value="en_US">en</option>
+        <option value="ko" selected>ko</option>
+        <option value="ko_KR">ko_KR</option>
+        <option value="zh">Chiness</option>
+      </select>
+    </section>
+
+    <h1 id="title">l10n.js demo</h1>
+    <p id="info">
+      Your locale is unsupported.
+    </p>
+  </body>
+</html>
+<script type="text/javascript">
+  if (location.hash) {
+    String.locale = location.hash.substr(1);
+  }
+
+  var localize = function(string, fallback) {
+    var localized = string.toLocaleString();
+    if (localized !== string) {
+      return localized;
+    } else {
+      return fallback;
+    }
+  };
+
+  var info = document.getElementById("info").firstChild, 
+  title = document.getElementById("title").firstChild;
+
+  info.nodeValue = localize("%info", info.nodeValue);
+  document.title = title.nodeValue = localize("%title", title.nodeValue);
+  document.documentElement.dir = localize("%locale.dir", document.documentElement.dir);
+
+  document.documentElement.lang = String.locale || document.documentElement.lang;
+</script>
