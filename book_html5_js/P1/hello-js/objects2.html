@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+    <title>ECMAScript 5::strict - shape</title>
+        
+    </head>
+    <body>
+    <section id="content">
+      <article>
+      </article>
+    </section>
+
+    </body>
+    
+  <script>
+  "use strict";
+  
+  // ==== Cars object constructor function =====
+  function Cars(options) {
+    this.name = options.name || 'unknown';
+    this.gear = 0;
+    this.drive = function(options) {
+       this.gear = options.gear || '0';
+       this.accel = options.accel || '1'; // 1...120km
+    }
+  }
+
+  var sonata = new Cars({ name:"Sonata"});
+  var myCar = new Cars(); // this.name은 undefined
+  var myCar2 = new Cars;  // this.name은 undefined
+
+
+  console.log(sonata.name); //'sonata'
+  console.log(myCar.name); //'unknown'
+
+
+  // ==== Animal object ====
+  var Animal = function (name, species, hello) {
+    this.name = name;
+    this.species = species;
+    this.hello = hello;
+    this.sayHello = function() {
+        alert(this.hello);
+    }
+  }
+
+  var blackCat = new Animal('고양이','블랙캣','안녕,,, 냐옹아!');
+  blackCat.tag = '밤 고양이';
+  alert(blackCat.name);
+  alert(blackCat.species);
+  alert(blackCat.hello);
+  alert(blackCat.tag);
+  blackCat.sayHello();
+
+
+  
+  </script>
+</html>
